@@ -1,6 +1,4 @@
 import java.io.File
-import java.math.BigInteger
-import java.security.MessageDigest
 
 /**
  * Reads lines from the given input txt file.
@@ -26,4 +24,12 @@ fun <T : Any?> Sequence<T>.chunkByPredicate(
         }
         yield(current)
     }
+}
+
+fun IntRange.fullyContainedIn(other: IntRange): Boolean {
+    return first >= other.first && last <= other.last
+}
+
+fun IntRange.overlaps(other: IntRange): Boolean {
+    return first <= other.last && last >= other.first
 }
